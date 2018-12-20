@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!--Size of editing options in Text Editor -->
+    <dimen name="editing_icon_size">32dp</dimen>
+    <dimen name="write_fragment_tvs">24sp</dimen>
+</resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.delllatitude.appolog">
+
+    <application
+        android:name=".BlogApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_label"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="android.app.default_searchable"
+            android:value=".SearchableActivity" />
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:label="@string/app_name"></activity>
+
+        <activity android:name=".activities.LoginActivity" />
+
+        <activity
+            android:name=".activities.SearchableActivity"
+            android:label="@string/app_label"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <activity android:name=".activities.DetailedBlogActivity" />
+
+        <activity android:name=".activities.SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.WelcomeActivity" />
+        <activity android:name=".activities.DetailedUserActivity" />
+        <activity android:name=".activities.UserProfileActivity" />
+        <activity android:name=".activities.UserBlogsActivity" />
+
+    </application>
+
+</manifest>

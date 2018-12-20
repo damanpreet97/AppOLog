@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:layout_width="140dp"
+    android:layout_height="200dp">
+
+    <android.support.v7.widget.CardView
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/item_ub_iv_title_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"/>
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/item_ub_tv_date"
+                android:layout_width="match_parent"
+                android:textSize="12sp"
+                tools:text="Date"
+                android:textColor="@color/black"
+                android:layout_height="0dp"
+                android:layout_weight="2"/>
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/item_ub_tv_title"
+                android:layout_width="match_parent"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                tools:text="Title"
+                android:layout_height="0dp"
+                android:layout_weight="5"/>
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/item_ub_tv_content"
+                android:layout_width="match_parent"
+                android:textSize="12sp"
+                tools:text="Content"
+                android:textColor="@color/black"
+                android:layout_height="0dp"
+                android:layout_weight="4"/>
+
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/item_ub_tv_likes"
+                android:layout_width="match_parent"
+                android:textSize="12sp"
+                tools:text="Likes"
+                android:textColor="@color/black"
+                android:layout_height="0dp"
+                android:layout_weight="2"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

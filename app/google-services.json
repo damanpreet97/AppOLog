@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "969882918155",
+    "firebase_url": "https://appolog-3e196.firebaseio.com",
+    "project_id": "appolog-3e196",
+    "storage_bucket": "appolog-3e196.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969882918155:android:b6e0550020744fb2",
+        "android_client_info": {
+          "package_name": "com.example.delllatitude.appolog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969882918155-gbiv9tuelb1q59naho3m46si92gsh76u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.delllatitude.appolog",
+            "certificate_hash": "70d887d794abd7d773cd90d8b6e29c15749509ee"
+          }
+        },
+        {
+          "client_id": "969882918155-0uqm82181h8kbunc9inha0is93sdi7gm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.delllatitude.appolog",
+            "certificate_hash": "43ecf3546c0a9d6506bec553bef692e9c60c9e3b"
+          }
+        },
+        {
+          "client_id": "969882918155-dnqcdv3f232hkf2dgudlm6ah37dp0vf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQXn7u269v8oDxF8XddYh1iHz3BkShUVs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969882918155-dnqcdv3f232hkf2dgudlm6ah37dp0vf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
