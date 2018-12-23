@@ -3,6 +3,7 @@ package com.example.delllatitude.appolog;
 import android.app.Application;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.delllatitude.appolog.models.Blog;
 import com.google.firebase.auth.FirebaseAuth;
@@ -140,13 +141,17 @@ public class BlogApplication extends Application {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String BlogID = (String) dataSnapshot.getValue();
 
-                //add the blog with particular BlogID in the arrayList.
+                //add the blog with particular BlogID in the arrayList & also listen for changes in the data.
                 addBlogToCurrUserBlogArrayList(BlogID);
             }
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//                Log.e("TAG", "onChildChanged: ");
+//                String BlogID = (String) dataSnapshot.getValue();
 
+            //    updates the blog whose value is changed
+//                replaceBlogInCurrUserBlogArrayList(BlogID);
             }
 
             @Override
@@ -169,6 +174,11 @@ public class BlogApplication extends Application {
         };
     }
 
+    private void replaceBlogInCurrUserBlogArrayList(Blog blog, int position){
+        currUserBlogsArrayList.set(position, blog);
+    }
+
+
     private void removeBlogFromCurrUserBlogArrayList(String blogID) {
         blogsRef.child(blogID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -184,12 +194,23 @@ public class BlogApplication extends Application {
         });
     }
 
-    private void addBlogToCurrUserBlogArrayList(String blogID) {
-        blogsRef.child(blogID).addListenerForSingleValueEvent(new ValueEventListener() {
+//    This will also monitor changes in the blog when one is updated
+    private void addBlogToCurrUserBlogArrayList(final String blogID) {
+        blogsRef.child(blogID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Blog blog = dataSnapshot.getValue(Blog.class);
-                currUserBlogsArrayList.add(blog);
+
+                //Search for this blog. If it is present then position != -1 and we thus update the current one
+                // else we add it afresh
+                int position = currUserBlogsArrayList.indexOf(blog);
+                if(position != -1){
+                //  replace
+                    replaceBlogInCurrUserBlogArrayList(blog, position);
+                }else {
+                //    add
+                    currUserBlogsArrayList.add(blog);
+                }
             }
 
             @Override
@@ -218,7 +239,8 @@ public class BlogApplication extends Application {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                String blogID = (String)dataSnapshot.getValue();
+                replaceBlogInFavArrayList(blogID);
             }
 
             @Override
@@ -240,6 +262,25 @@ public class BlogApplication extends Application {
             }
         };
     }
+
+    private void replaceBlogInFavArrayList(String blogID) {
+        blogsRef.child(blogID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Blog blog = dataSnapshot.getValue(Blog.class);
+                int position = favBlogArrayList.indexOf(blog);
+                if(position != -1){
+                    favBlogArrayList.add(position, blog);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 
     public void addBlogToFavArrayList(String blogID){
         blogsRef.child(blogID).addListenerForSingleValueEvent(new ValueEventListener() {

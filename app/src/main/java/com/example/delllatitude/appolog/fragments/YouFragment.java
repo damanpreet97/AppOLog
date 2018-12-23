@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.delllatitude.appolog.R;
 import com.example.delllatitude.appolog.activities.LoginActivity;
+import com.example.delllatitude.appolog.activities.UserBlogsActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -74,7 +75,7 @@ public class YouFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 attachAnimation(v);
-                launchUserProfileActivity();
+                launchUserBlogsActivity();
             }
         });
                 tvLogout.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +93,11 @@ public class YouFragment extends Fragment {
             }
         });
 
+    }
+
+    private void launchUserBlogsActivity() {
+        Intent userBlogsActivityintent = new Intent(getContext(), UserBlogsActivity.class);
+        startActivity(userBlogsActivityintent);
     }
 
     @Override

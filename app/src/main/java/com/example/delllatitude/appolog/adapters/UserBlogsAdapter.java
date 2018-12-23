@@ -81,6 +81,7 @@ public class UserBlogsAdapter extends RecyclerView.Adapter<UserBlogsAdapter.MyVi
         return blogArrayList.size();
     }
 
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView mainImage;
         TextView date, title, likes, content;

@@ -49,6 +49,7 @@ public class MyFirebaseRecyclerAdapter {
                     return super.getItemCount();
                 }
 
+            //this reverses the order of display, in a way it is sorting highest to lowest priority
                 @NonNull
                 @Override
                 public Blog getItem(int position) {
