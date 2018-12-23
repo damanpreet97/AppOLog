@@ -20,14 +20,9 @@ public class BlogApplication extends Application {
 
 
     private static ArrayList<Blog> currUserBlogsArrayList = new ArrayList<>();
-    DatabaseReference currUserFavouritesFragmentRef, blogsRef, currUserBloglistRef;;
-//    ArrayList<String> favouriteBlogIDArrayList = new ArrayList<>();
     private static ArrayList<Blog> favBlogArrayList = new ArrayList<>();
+    DatabaseReference currUserFavouritesFragmentRef, blogsRef, currUserBloglistRef;
     ChildEventListener favBlogIDsChildEventListener, currUserBlogIDsChildEventListener;
-
-//    static ArrayList<Blog> recentBlogsArrayList = new ArrayList<>();
-//    static ArrayList<Blog> topBlogsArrayList = new ArrayList<>();
-//    DatabaseReference blogsReference;
 
     @Override
     public void onCreate() {
@@ -52,7 +47,11 @@ public class BlogApplication extends Application {
                         currUserBloglistRef = FirebaseDatabase.getInstance().getReference().child("Users")
                                 .child(currUser.getUid()).child("BlogList");
 
+                        //get all favourite blogs in arraylist
                         getAllFavouriteBlogIDs();
+
+                        //get all current user's blogs in arraylist
+                        getAllCurrUserBlogsIDs();
                     }
                 }
             });
@@ -126,6 +125,10 @@ public class BlogApplication extends Application {
 //    public void onCancelled(@NonNull DatabaseError databaseError) {
 //
 
+//This section creates arrayList and fills them with currrent User's blogs
+
+    //Attaches listener to the list of all the blogs of current user and then fetches each one by one and adds
+    // them to arraylist.
     private void getAllCurrUserBlogsIDs(){
         createChildListenerForCurrUserBlogs();
         currUserBloglistRef.addChildEventListener(currUserBlogIDsChildEventListener);
@@ -136,6 +139,8 @@ public class BlogApplication extends Application {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 String BlogID = (String) dataSnapshot.getValue();
+
+                //add the blog with particular BlogID in the arrayList.
                 addBlogToCurrUserBlogArrayList(BlogID);
             }
 
@@ -147,6 +152,8 @@ public class BlogApplication extends Application {
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
                 String BlogID = (String) dataSnapshot.getValue();
+
+                //remove the blog with particular BlogID from the arrayList.
                 removeBlogFromCurrUserBlogArrayList(BlogID);
             }
 
@@ -192,13 +199,13 @@ public class BlogApplication extends Application {
         });
     }
 
-
+//This section creates arrayList and fills them with currrent User's favourites
     private void getAllFavouriteBlogIDs() {
         createChildListenerForFavBlogs();
         currUserFavouritesFragmentRef.addChildEventListener(favBlogIDsChildEventListener);
     }
 
-//    This listener also adds and removes blog to arraylist
+    // This listener also adds and removes blog to arraylist
     private void createChildListenerForFavBlogs() {
         favBlogIDsChildEventListener =  new ChildEventListener() {
             @Override

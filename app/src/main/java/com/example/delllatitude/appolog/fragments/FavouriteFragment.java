@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.delllatitude.appolog.BlogApplication;
 import com.example.delllatitude.appolog.R;
-import com.example.delllatitude.appolog.adapters.LatestRecyclerViewAdapter;
+import com.example.delllatitude.appolog.adapters.FavouriteRecyclerViewAdapter;
 import com.example.delllatitude.appolog.models.Blog;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class FavouriteFragment extends Fragment{
     ArrayList<Blog> favBlogArrayList;
     RecyclerView recyclerView;
     TextView tvNoFavourite;
-    LatestRecyclerViewAdapter latestRecyclerViewAdapter;
+    FavouriteRecyclerViewAdapter favouriteRecyclerViewAdapter;
 //    ChildEventListener blogIDchildEventListener;
 
     @Override
@@ -36,7 +36,7 @@ public class FavouriteFragment extends Fragment{
         super.onCreate(savedInstanceState);
 
         favBlogArrayList = BlogApplication.getFavBlogsArrayList();
-        latestRecyclerViewAdapter = new LatestRecyclerViewAdapter(getContext(), favBlogArrayList);
+        favouriteRecyclerViewAdapter = new FavouriteRecyclerViewAdapter(getContext(), favBlogArrayList);
 
 //        currUserFavouritesFragmentRef = FirebaseDatabase.getInstance().getReference().child("Users")
 //                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Favourites");
@@ -67,7 +67,7 @@ public class FavouriteFragment extends Fragment{
 //                    Blog blog = dataSnapshot.getValue(Blog.class);
 //                    if(!favBlogArrayList.contains(blog)) {
 //                        favBlogArrayList.add(blog);
-//                        latestRecyclerViewAdapter.notifyDataSetChanged();
+//                        favouriteRecyclerViewAdapter.notifyDataSetChanged();
 ////                    Log.e("TAG", "onDataChange: " + blog.getAuthorID() );
 //                    }
 //                }
@@ -140,7 +140,7 @@ public class FavouriteFragment extends Fragment{
         Log.e("TAG", "setAdapter: " + favBlogArrayList.size());
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(linearLayoutManager);
-            recyclerView.setAdapter(latestRecyclerViewAdapter);
+            recyclerView.setAdapter(favouriteRecyclerViewAdapter);
 //        }
 //        Log.e("TAG", "setAdapter: "+ favBlogArrayList.get(0).getAuthorID());
     }
@@ -150,7 +150,7 @@ public class FavouriteFragment extends Fragment{
     public void onResume() {
         super.onResume();
         favBlogArrayList = BlogApplication.getFavBlogsArrayList();
-        latestRecyclerViewAdapter.notifyDataSetChanged();
+        favouriteRecyclerViewAdapter.notifyDataSetChanged();
 //        if(favBlogArrayList.size()!=0){
 //            tvNoFavourite.setVisibility(View.GONE);
 //        }

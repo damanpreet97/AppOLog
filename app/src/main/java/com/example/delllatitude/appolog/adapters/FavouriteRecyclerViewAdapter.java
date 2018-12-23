@@ -23,21 +23,21 @@ import java.util.Calendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class LatestRecyclerViewAdapter extends RecyclerView.Adapter<LatestRecyclerViewAdapter.MyViewHolder> {
+public class FavouriteRecyclerViewAdapter extends RecyclerView.Adapter<FavouriteRecyclerViewAdapter.MyViewHolder> {
 
     Context context;
     ArrayList<Blog> blogArrayList;
-    DatabaseReference blogsRef = FirebaseDatabase.getInstance().getReference().child("Blogs");
+//    DatabaseReference blogsRef = FirebaseDatabase.getInstance().getReference().child("Blogs");
 
-    public LatestRecyclerViewAdapter(Context context, ArrayList<Blog> blogArrayList) {
+    public FavouriteRecyclerViewAdapter(Context context, ArrayList<Blog> blogArrayList) {
         this.context = context;
         this.blogArrayList = blogArrayList;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         //        view items here
-        CircleImageView circleImageView;
-        TextView authName, date, title, content, likes;
+        private CircleImageView circleImageView;
+        private TextView authName, date, title, content, likes;
 
 
         public MyViewHolder(View itemView) {
@@ -92,14 +92,14 @@ public class LatestRecyclerViewAdapter extends RecyclerView.Adapter<LatestRecycl
 
     @NonNull
     @Override
-    public LatestRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public FavouriteRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Log.e("TAG", "onCreateViewHolder: ");
         View view = LayoutInflater.from(context).inflate(R.layout.item_card_latest, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LatestRecyclerViewAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FavouriteRecyclerViewAdapter.MyViewHolder holder, int position) {
 //        set each item in the view
         Log.e("TAG", "onBindViewHolder: ");
         final Blog currBlog = blogArrayList.get(position);
