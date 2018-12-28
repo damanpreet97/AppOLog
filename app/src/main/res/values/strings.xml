@@ -22,4 +22,14 @@
     <string name="legal_about"><![CDATA[Legal & About]]></string>
     <string name="login_request_message">You are not logged in. \n Kindly Login to manage your Account</string>
     <string name="login">Login</string>
+    <string name="change_password">Change Password</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="middle_name">Middle Name</string>
+    <string name="city">City</string>
+    <string name="mobile_no">Mobile Number</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="profile">Profile</string>
 </resources>

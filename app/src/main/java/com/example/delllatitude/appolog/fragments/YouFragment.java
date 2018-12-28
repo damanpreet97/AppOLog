@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.example.delllatitude.appolog.R;
 import com.example.delllatitude.appolog.activities.LoginActivity;
 import com.example.delllatitude.appolog.activities.UserBlogsActivity;
+import com.example.delllatitude.appolog.activities.UserProfileActivity;
 import com.google.android.gms.auth.api.Auth;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -120,6 +121,8 @@ public class YouFragment extends Fragment {
     }
 
     private void launchUserProfileActivity() {
+        Intent userProfileIntent = new Intent(getContext(), UserProfileActivity.class);
+        startActivity(userProfileIntent);
     }
 
     private void logout(){
