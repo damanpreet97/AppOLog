@@ -136,8 +136,12 @@ public class DetailedBlogActivity extends AppCompatActivity {
                             String value = (String) dataSnapshot.getValue();
                             if (value == null) {
                                 currUserFavouritesRef.child(blog.getBlogID()).setValue(blog.getBlogID());
+                                fabFavourite.setImageResource(R.drawable.ic_favourite_filled);
+                                Toast.makeText(DetailedBlogActivity.this, "Added to Favourites", Toast.LENGTH_SHORT).show();
                             } else {
                                 currUserFavouritesRef.child(blog.getBlogID()).removeValue();
+                                Toast.makeText(DetailedBlogActivity.this, "Removed from Favourites", Toast.LENGTH_SHORT).show();
+                                fabFavourite.setImageResource(R.drawable.ic_favorite_white_24dp);
                             }
                         }
 
