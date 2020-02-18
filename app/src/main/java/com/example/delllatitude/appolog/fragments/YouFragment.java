@@ -14,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.delllatitude.appolog.R;
 import com.example.delllatitude.appolog.activities.LoginActivity;
@@ -68,8 +69,9 @@ public class YouFragment extends Fragment {
         tvProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attachAnimation(v);
-                launchUserProfileActivity();
+                Toast.makeText(getContext(), "Coming Soon...", Toast.LENGTH_SHORT).show();
+//                attachAnimation(v);
+//                launchUserProfileActivity();
             }
         });
                 tvBlogs.setOnClickListener(new View.OnClickListener() {

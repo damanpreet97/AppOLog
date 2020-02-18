@@ -114,9 +114,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.notifications:
+//            case R.id.notifications:
 //                launch new notifications activity
-                return true;
+//                return true;
             case R.id.searchView:
                 return true;
 //            case R.id.settings:

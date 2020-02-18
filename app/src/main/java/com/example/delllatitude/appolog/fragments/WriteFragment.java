@@ -95,6 +95,12 @@ public class WriteFragment extends Fragment {
         imvTitleImage = view.findViewById(R.id.imvTitleImage);
         title = view.findViewById(R.id.etWriteTitle);
         editor = view.findViewById(R.id.editor);
+
+//        Ensure that you disable debugging for your app if using WebView to display paid for content
+//        or if using JavaScript interfaces, since debugging allows users to inject scripts and extract
+//        content using Chrome DevTools.
+        editor.setWebContentsDebuggingEnabled(false);
+
         initializeEditorTools(view);
         addTitleImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -344,7 +350,7 @@ public class WriteFragment extends Fragment {
     }
 
     private void showImageEdit() {
-        addImageLayout.setVisibility(View.GONE);
+        addImageLayout.setVisibility(View.INVISIBLE);
         showImageLayout.setVisibility(View.VISIBLE);
     }
 
@@ -448,6 +454,7 @@ public class WriteFragment extends Fragment {
     private void resetData() {
         title.setText("");
         showAddImage();
+        editor.setHtml("");
 //        imvTitleImage.setImageResource(R.drawable.download1);
     }
 

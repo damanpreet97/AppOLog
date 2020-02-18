@@ -78,6 +78,7 @@
                 android:background="@drawable/border"
                 android:id="@+id/titleImage"
                 app:cardCornerRadius="4dp"
+                android:minHeight="100dp"
                 >
 
                 <LinearLayout
@@ -95,8 +96,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:src="@drawable/ic_add_a_photo_white_24dp"/>
+                    app:backgroundTint="@color/colorPrimary"
+                    app:srcCompat="@drawable/ic_add_a_photo_white_24dp"/>
 
                 <TextView
                     android:layout_marginTop="4dp"
@@ -111,17 +112,14 @@
                     android:id="@+id/layoutShowImage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:orientation="vertical"
                     android:padding="4dp"
                     android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/imvTitleImage"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="150dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/download1"
                         />
 
                     <ImageView

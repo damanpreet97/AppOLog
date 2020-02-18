@@ -57,7 +57,7 @@ public class RecentTopFragment extends Fragment{
              query = FirebaseDatabase.getInstance()
                     .getReference()
                     .child("Blogs")
-                    .orderByChild("reads");
+                    .orderByChild("likes");
         }else {
             query = FirebaseDatabase.getInstance()
                     .getReference()

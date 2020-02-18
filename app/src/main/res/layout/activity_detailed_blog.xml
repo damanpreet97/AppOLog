@@ -30,6 +30,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="12dp"
                 android:fontFamily="sans-serif"
+                android:background="@color/white"
                 android:textColor="@color/cardview_dark_background"
                 android:textIsSelectable="true"
                 android:textSize="24sp"

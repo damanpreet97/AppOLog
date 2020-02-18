@@ -140,8 +140,8 @@ public class FavouriteFragment extends Fragment{
         Log.e("TAG", "setAdapter: " + favBlogArrayList.size());
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(linearLayoutManager);
+            favouriteRecyclerViewAdapter.setHasStableIds(true);
             recyclerView.setAdapter(favouriteRecyclerViewAdapter);
-//            favouriteRecyclerViewAdapter.setHasStableIds(true);
 //        }
 //        Log.e("TAG", "setAdapter: "+ favBlogArrayList.get(0).getAuthorID());
     }
