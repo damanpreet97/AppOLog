@@ -2,12 +2,15 @@ package com.example.delllatitude.appolog.activities;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.delllatitude.appolog.PrefManager;
@@ -28,8 +31,9 @@ import java.util.Arrays;
 
 public class LoginActivity extends AppCompatActivity implements FirebaseAuth.AuthStateListener{
 
-    ImageButton buttonBack, buttonProceed;
+    Button buttonProceed;
     FirebaseUser currUser;
+    TextView welcomeTitle;
     DatabaseReference currUserDetailsReference;
     String currUserDpUri;
     PrefManager prefManager;
@@ -38,19 +42,22 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAuth.Aut
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_login);
-        buttonBack = findViewById(R.id.loginButtonBack);
+//        buttonBack = findViewById(R.id.loginButtonBack);
         buttonProceed = findViewById(R.id.loginButtonProceed);
+
+        welcomeTitle = findViewById(R.id.welcomeAppTitle);
+        welcomeTitle.setPaintFlags(welcomeTitle.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
 
         prefManager = new PrefManager(this);
 
         FirebaseAuth.getInstance().addAuthStateListener(this);
 
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        buttonBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
 
         buttonProceed.setOnClickListener(new View.OnClickListener() {
             @Override

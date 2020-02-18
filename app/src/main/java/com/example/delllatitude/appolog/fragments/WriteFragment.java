@@ -55,7 +55,7 @@ public class WriteFragment extends Fragment {
     Button btnPost;
     LinearLayout addImageLayout;
     RelativeLayout showImageLayout;
-    ImageView imvTitleImage;
+    ImageView imvTitleImage, editImage;
     FloatingActionButton addTitleImage;
     EditText title;
     RichEditor editor;
@@ -89,6 +89,7 @@ public class WriteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         btnPost = view.findViewById(R.id.btnWritePost);
         addTitleImage = view.findViewById(R.id.fabImage);
+        editImage = view.findViewById(R.id.imgEditBtn);
         showImageLayout = view.findViewById(R.id.layoutShowImage);
         addImageLayout = view.findViewById(R.id.llAddImage);
         imvTitleImage = view.findViewById(R.id.imvTitleImage);
@@ -96,6 +97,13 @@ public class WriteFragment extends Fragment {
         editor = view.findViewById(R.id.editor);
         initializeEditorTools(view);
         addTitleImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI), GET_FROM_GALLERY);
+            }
+        });
+        editImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(Intent.ACTION_PICK,
@@ -317,7 +325,7 @@ public class WriteFragment extends Fragment {
 //            Bitmap bitmap = null;
 
 //                blogMainImageUri = selectedImage;
-            addImageLayout.setVisibility(View.GONE);
+            showImageEdit();
 
                 Picasso.get().load(selectedImage.toString()).fit().into(imvTitleImage);
 //                bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), selectedImage);
@@ -333,6 +341,11 @@ public class WriteFragment extends Fragment {
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
+    }
+
+    private void showImageEdit() {
+        addImageLayout.setVisibility(View.GONE);
+        showImageLayout.setVisibility(View.VISIBLE);
     }
 
     //This method uploads the image selected by the user from his local storage to firebase storage and then
@@ -434,9 +447,13 @@ public class WriteFragment extends Fragment {
 
     private void resetData() {
         title.setText("");
+        showAddImage();
+//        imvTitleImage.setImageResource(R.drawable.download1);
+    }
+
+    private void showAddImage() {
         addImageLayout.setVisibility(View.VISIBLE);
         showImageLayout.setVisibility(View.GONE);
-//        imvTitleImage.setImageResource(R.drawable.download1);
     }
 
 
