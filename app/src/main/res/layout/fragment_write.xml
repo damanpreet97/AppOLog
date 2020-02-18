@@ -88,7 +88,7 @@
                     android:orientation="vertical"
                     android:layout_margin="8dp"
                     android:padding="4dp"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/fabImage"
@@ -114,7 +114,7 @@
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="4dp"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/imvTitleImage"

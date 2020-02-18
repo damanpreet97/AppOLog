@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAuth.Aut
     String currUserDpUri;
     PrefManager prefManager;
     int currUserBlogsPosted = 0;
+    private int count;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,6 +76,22 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAuth.Aut
         });
 
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        count = 0;
+        if(FirebaseAuth.getInstance().getCurrentUser() != null){
+            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show();
+            launchMainActivity();
+//            finish();
+        }
+    }
+    private void launchMainActivity() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
     @Override
@@ -118,4 +135,14 @@ public class LoginActivity extends AppCompatActivity implements FirebaseAuth.Aut
         currUserDetailsReference.setValue(user);
     }
 
+    //prevents unintentional back press
+    @Override
+    public void onBackPressed() {
+        if(count==0){
+            count++;
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_LONG).show();
+        }else {
+            super.onBackPressed();
+        }
+    }
 }

@@ -30,7 +30,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Intent i;
                 prefManager = new PrefManager(SplashScreenActivity.this);
                 if (prefManager.isFirstTimeLaunch()) {
-                    i = new Intent(SplashScreenActivity.this, WelcomeActivity.class);
+                    i = new Intent(SplashScreenActivity.this, LoginActivity.class);
                 } else {
                     i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 }
