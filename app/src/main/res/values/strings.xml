@@ -15,7 +15,7 @@
     <string name="welcome">Welcome!</string>
     <string name="get_started">Get Started</string>
     <string name="blog_content_hint_tv">Start writing your blog below .....</string>
-    <string name="blog_title_hint_et">Enter the title of your blog here</string>
+    <string name="blog_title_hint_et">Blog Title</string>
     <string name="no_search_result_found">Sorry! No search results found for searched keyword.  Please Try searching for some other keyword</string>
     <string name="no_favourite_blogs">You have no favourite blogs</string>
     <string name="your_account">Your Account</string>

@@ -141,6 +141,7 @@ public class FavouriteFragment extends Fragment{
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(linearLayoutManager);
             recyclerView.setAdapter(favouriteRecyclerViewAdapter);
+//            favouriteRecyclerViewAdapter.setHasStableIds(true);
 //        }
 //        Log.e("TAG", "setAdapter: "+ favBlogArrayList.get(0).getAuthorID());
     }

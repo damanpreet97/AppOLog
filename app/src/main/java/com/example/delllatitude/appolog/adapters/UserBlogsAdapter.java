@@ -96,5 +96,16 @@ public class UserBlogsAdapter extends RecyclerView.Adapter<UserBlogsAdapter.MyVi
             likes = itemView.findViewById(R.id.item_ub_tv_likes);
         }
     }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
 }
 

@@ -42,6 +42,7 @@ public class UserBlogsActivity extends AppCompatActivity {
         reverseSortedBlogs.addAll(currUserBlogsArrayList);
         Collections.reverse(reverseSortedBlogs);
         UserBlogsAdapter userBlogsAdapter = new UserBlogsAdapter(this, reverseSortedBlogs);
+//        userBlogsAdapter.setHasStableIds(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false);
         recentRecyclerView.setLayoutManager(linearLayoutManager);
@@ -67,6 +68,7 @@ public class UserBlogsActivity extends AppCompatActivity {
         });
 
         UserBlogsAdapter userBlogsAdapter = new UserBlogsAdapter(this, likeSortedBlogs);
+//        userBlogsAdapter.setHasStableIds(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false);
         topRecyclerView.setLayoutManager(linearLayoutManager);

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.delllatitude.appolog.R;
@@ -51,7 +53,10 @@ import jp.wasabeef.richeditor.RichEditor;
 public class WriteFragment extends Fragment {
     ActionBar actionBar;
     Button btnPost;
-    ImageButton imBtnWriteImage;
+    LinearLayout addImageLayout;
+    RelativeLayout showImageLayout;
+    ImageView imvTitleImage;
+    FloatingActionButton addTitleImage;
     EditText title;
     RichEditor editor;
     String blogTitle, blogContent, blogAuthorName, blogAuthorImage, blogMainImage, blogAuthorID, blogID;
@@ -83,11 +88,14 @@ public class WriteFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         btnPost = view.findViewById(R.id.btnWritePost);
-        imBtnWriteImage = view.findViewById(R.id.imBtnWriteImage);
+        addTitleImage = view.findViewById(R.id.fabImage);
+        showImageLayout = view.findViewById(R.id.layoutShowImage);
+        addImageLayout = view.findViewById(R.id.llAddImage);
+        imvTitleImage = view.findViewById(R.id.imvTitleImage);
         title = view.findViewById(R.id.etWriteTitle);
         editor = view.findViewById(R.id.editor);
         initializeEditorTools(view);
-        imBtnWriteImage.setOnClickListener(new View.OnClickListener() {
+        addTitleImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivityForResult(new Intent(Intent.ACTION_PICK,
@@ -309,7 +317,9 @@ public class WriteFragment extends Fragment {
 //            Bitmap bitmap = null;
 
 //                blogMainImageUri = selectedImage;
-                Picasso.get().load(selectedImage.toString()).fit().into(imBtnWriteImage);
+            addImageLayout.setVisibility(View.GONE);
+
+                Picasso.get().load(selectedImage.toString()).fit().into(imvTitleImage);
 //                bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), selectedImage);
 
 
@@ -424,7 +434,9 @@ public class WriteFragment extends Fragment {
 
     private void resetData() {
         title.setText("");
-        imBtnWriteImage.setImageResource(R.drawable.download1);
+        addImageLayout.setVisibility(View.VISIBLE);
+        showImageLayout.setVisibility(View.GONE);
+//        imvTitleImage.setImageResource(R.drawable.download1);
     }
 
 
