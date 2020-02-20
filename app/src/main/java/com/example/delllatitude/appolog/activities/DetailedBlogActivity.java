@@ -156,8 +156,8 @@ public class DetailedBlogActivity extends AppCompatActivity {
         Log.e("TAG", "setDetails: "+ blog.getMainImage() +", "+ blog.getContent() +", "+ blog.getTitle() +", "+ blog.getAuthor());
         if(blog.getMainImage()!=null){
             Picasso.get().load(blog.getMainImage()).placeholder(R.drawable.image_placeholder_green)
-                    .resize(Resources.getSystem().getDisplayMetrics().widthPixels,250)
                     .centerCrop()
+                    .fit()
                     .into(imageView);
         }else{
             imageView.setVisibility(View.GONE);
@@ -180,13 +180,13 @@ public class DetailedBlogActivity extends AppCompatActivity {
         String date = calendar.get(Calendar.DATE) + "/"  + calendar.get(Calendar.MONTH) + "/" + calendar.get(Calendar.YEAR);
         this.date.setText(date);
 
-
-        author.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchDetailedUserActivity(blogAuthor);
-            }
-        });
+        //opens user profile's page
+//        author.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                launchDetailedUserActivity(blogAuthor);
+//            }
+//        });
 
 
         fabFavourite.setOnClickListener(new View.OnClickListener() {

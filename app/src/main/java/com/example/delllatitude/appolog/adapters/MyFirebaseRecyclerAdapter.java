@@ -70,14 +70,14 @@ public class MyFirebaseRecyclerAdapter {
                         tvNoResults.setVisibility(View.GONE);
                     }
                     final Blog currBlog = model;
-                    final DatabaseReference currBlogRef = getRef(position);
-                    holder.itemView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            currBlog.setLikes(currBlog.getLikes() + 1);
-                            currBlogRef.child("likes").setValue(currBlog.getLikes());
-                        }
-                    });
+//                    final DatabaseReference currBlogRef = getRef(position);
+//                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            currBlog.setLikes(currBlog.getLikes() + 1);
+//                            currBlogRef.child("likes").setValue(currBlog.getLikes());
+//                        }
+//                    });
                     if(currBlog.getAuthorImage()!=null){
                         Picasso.get().load(currBlog.getAuthorImage()).into(holder.circleImageView);
                     }else{
