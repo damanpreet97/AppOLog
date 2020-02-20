@@ -37,7 +37,7 @@ public class FavouriteFragment extends Fragment{
 
         favBlogArrayList = BlogApplication.getFavBlogsArrayList();
         favouriteRecyclerViewAdapter = new FavouriteRecyclerViewAdapter(getContext(), favBlogArrayList);
-
+        favouriteRecyclerViewAdapter.setHasStableIds(true);
 //        currUserFavouritesFragmentRef = FirebaseDatabase.getInstance().getReference().child("Users")
 //                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Favourites");
 //        blogsRef = FirebaseDatabase.getInstance().getReference().child("Blogs");
@@ -140,7 +140,7 @@ public class FavouriteFragment extends Fragment{
         Log.e("TAG", "setAdapter: " + favBlogArrayList.size());
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
             recyclerView.setLayoutManager(linearLayoutManager);
-            favouriteRecyclerViewAdapter.setHasStableIds(true);
+//            favouriteRecyclerViewAdapter.setHasStableIds(true);
             recyclerView.setAdapter(favouriteRecyclerViewAdapter);
 //        }
 //        Log.e("TAG", "setAdapter: "+ favBlogArrayList.get(0).getAuthorID());
